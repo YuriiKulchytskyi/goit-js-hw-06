@@ -13,28 +13,36 @@ let input = document.querySelector('input');
 
 btnCreate.addEventListener('click', () => {
   let num = Number(input.value);
-  createBoxes(num);  
+  createBoxes(num);
 });
 
 
 btnDest.addEventListener('click', () => {
   boxes.innerHTML = '';
+  input.value = '';
 })
 
+let start = 1;
+let end = 100;
+let step = 1;
+
 function createBoxes(num) {
-  let width = 30;
-  let height = 30;
-  for (let i = 0; i < num; i++) {
-    let box = document.createElement('div');
-    box.style.backgroundColor = getRandomHexColor();
-    box.style.width = width + 'px';
-    box.style.height = height + 'px';
-    boxes.append(box);
-    width += 10;
-    height += 10;
-    
-    console.log(num);
+  boxes.innerHTML = '';
+  
+  let size = 30;
+  if (num >= start && num <= end) {
+    for (let i = 0; i < num; i++) {
+      let box = document.createElement('div');
+      box.style.backgroundColor = getRandomHexColor();
+      box.style.width = size + 'px';
+      box.style.height = size + 'px';
+      boxes.append(box);
+      size += 10;
+      
+    } 
   }
+  else if (num < start || num > end || input.value == '') {
+    alert(`Choose a number between ${start} and ${end}`)
+  }
+  input.value = '';
 }
-
-
