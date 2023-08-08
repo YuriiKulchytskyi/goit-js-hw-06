@@ -22,26 +22,25 @@ btnDest.addEventListener('click', () => {
   input.value = '';
 })
 
-let start = 1;
-let end = 100;
-let step = 1;
+let start = Number(input.min);
+let end = Number(input.max);
+let step = Number(input.step);
+
 
 function createBoxes(num) {
-  boxes.innerHTML = '';
-  
+
   let size = 30;
   if (num >= start && num <= end) {
-    for (let i = 0; i < num; i++) {
+    for (let i = 0; i < num; i += step) {
       let box = document.createElement('div');
       box.style.backgroundColor = getRandomHexColor();
       box.style.width = size + 'px';
       box.style.height = size + 'px';
       boxes.append(box);
       size += 10;
-      
-    } 
-  }
-  else if (num < start || num > end || input.value == '') {
+
+    }
+  } else if (num < start || num > end || input.value == '') {
     alert(`Choose a number between ${start} and ${end}`)
   }
   input.value = '';

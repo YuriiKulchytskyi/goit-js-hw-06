@@ -1,6 +1,6 @@
-let value = document.querySelector('#value');
+const value = document.querySelector('#value');
 
-let buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('button');
 
 let counterValue = 0;
 

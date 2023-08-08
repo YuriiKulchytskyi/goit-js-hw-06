@@ -15,7 +15,7 @@ const images = [
 
 
 
-let list = document.querySelector('.gallery');
+const list = document.querySelector('.gallery');
 
 const createNewImage = images.map(image => `<li><img src=${image.url} alt=${image.alt}></li>`).join('');
 
